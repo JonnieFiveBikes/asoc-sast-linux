@@ -201,7 +201,7 @@ class AppScanOnCloudSAST():
         if not is_chunked and content_length_s.isdigit():
             file_size = int(content_length_s)
         else:
-            file_size = 100
+            file_size = 100 #This value breaks the % completion logging below, but allows scan to run.
         disposition = r.headers["content-disposition"]
         chunk_size = 4096
         xfered = 0
