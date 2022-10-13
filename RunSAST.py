@@ -196,12 +196,12 @@ class AppScanOnCloudSAST():
             logging.error("Invalid HTTP code downloading SAClient Util")
             return False
 	#Code needed in the event that file is stored on CDN
-	is_chunked = r.headers.get('transfer-encoding', '') == 'chunked'
-	content_length_s = r.headers.get('content-length')
-        if not is_chunked and content_length_s.isdigit():
-		file_size = int(content_length_s)
+        is_chunked = r.headers.get('transfer-encoding', '') == 'chunked'
+        content_length_s = r.headers.get('content-length')
+	if not is_chunked and content_length_s.isdigit():
+	     file_size = int(content_length_s)
 	else:
-    		file_size = None
+    	     file_size = None
 	
         disposition = r.headers["content-disposition"]
         chunk_size = 4096
