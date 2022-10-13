@@ -202,7 +202,6 @@ class AppScanOnCloudSAST():
 	     file_size = int(content_length_s)
 	else:
     	     file_size = None
-	
         disposition = r.headers["content-disposition"]
         chunk_size = 4096
         xfered = 0
